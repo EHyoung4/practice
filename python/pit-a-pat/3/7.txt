@@ -1,0 +1,10 @@
+import time
+fseconds = time.time()
+hour=int(fseconds//60//60%24/12) #60초 60분 24시간 
+min=int(fseconds//60%60)
+print("현재 시간(영국 그리니치 시각):",hour,"시 ",min,"분")
+
+8번 kg=int(input("물체의 무게를 입력하시오(킬라그램):"))
+m=int(input("물체의 속도를 입력하시오(미/초):"))
+j=0.5*kg*m**2
+print("물체는 ",j,"(줄)의 에너지를 가지고 있다.")
