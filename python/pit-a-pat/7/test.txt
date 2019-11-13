@@ -1,0 +1,109 @@
+#1
+import turtle as t
+import random
+t.shape("turtle")
+
+def draw_snowman(x,y):
+    t.speed(0)
+    t.up();t.goto(x,y+140);t.down()
+    t.begin_fill();t.color("black","white");t.circle(40);t.end_fill()
+    t.up();t.goto(x,y+100);t.down()
+    t.begin_fill();t.color("black","white");t.circle(30);t.end_fill()
+    t.up();t.goto(x,y);t.down()
+    t.begin_fill();t.color("black","white");t.circle(60);t.end_fill()
+    t.up();t.goto(x+30,y+100);t.down()
+    t.lt(25);t.fd(50);
+    t.up();t.goto(x-80,y+100);t.down()
+    t.rt(25);t.fd(50);
+
+s=t.Screen();s.bgcolor('skyblue');
+for i in range(3):
+    x=random.randrange(-300,300)
+    y=random.randrange(-100,100)
+    draw_snowman(x,y)
+
+#2
+import turtle
+t = turtle.Turtle()
+def draw_hexa():
+    for i in range(6):
+        t.fd(100)
+        t.rt(60)
+for i in range(6):
+    t.fd(100)
+    t.lt(60)
+    draw_hexa()
+
+#3import turtle as t
+import math
+
+def f(x):
+    y=x^2+1
+    return y
+
+t.shape("turtle");t.speed(0)
+t.fd(500);t.up();t.goto(0,0);t.down();t.lt(90);t.fd(500);t.up();t.goto(0,0);t.down();t.rt(90);
+for x in range(0,150):
+    t.speed(0)
+    y=f(x)*0.1
+    t.goto(x,y)
+
+#4
+import turtle as t
+def draw_line():
+    t.fd(100);t.back(100)
+t.shape("turtle");t.speed(0);
+for i in range(12):
+    draw_line()
+    t.up();t.goto(0,0);t.down();
+    t.lt(30);
+
+#5
+def happyBirthday(x):
+    happy();happy();
+    print("Happt Birthday, dear ",x)
+    happy()
+def happy():
+    print("Happy Birthday to you!")
+happyBirthday("홍길동")
+
+#6
+def math():
+    x=int(input("첫 번째 정수: "))
+    y=int(input("두 번째 정수: "))
+    print("정수",x,"+",y,"의 합은?")
+math()
+
+#7
+def circleArea(radius):
+    global area
+    area=radius*radius*PI
+
+def circleCircumference(radius):
+    global circum
+    circum=radius*2*PI
+    
+PI=3.14
+circleArea(5)
+print("반질름이 5인 원의 면적: ",area)
+circleCircumference(5)
+print("반지름이 5인 원의 둘레: ",circum)
+
+#8
+def add(a,b):
+    c=a+b
+    print(a,"+",b,"=",c)
+def div(a,b):
+    c=a/b
+    print(a,"/",b,"=",c)
+def mul(a,b):
+    c=a*b
+    print(a,"*",b,"=",c)
+def sub(a,b):
+    c=a-b
+    print(a,"-",b,"=",c)
+
+add(20,10)
+mul(20,10)
+div(20,10)
+sub(20,10)
