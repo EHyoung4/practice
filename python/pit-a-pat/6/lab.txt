@@ -1,0 +1,170 @@
+#1
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+for i in range(3):
+    t.fd(100)
+    t.lt(120)
+t.up()
+t.goto(200,0)
+t.down()
+for i in range(4):
+    t.fd(100)
+    t.lt(90)
+t.up()
+t.goto(350,0)
+t.down()
+for i in range(6):
+    t.fd(50)
+    t.lt(60)
+
+#2
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+s=turtle.textinput(" ","몇각형을 원하시나요?")
+len=int(turtle.textinput(" ","길이는 몇을 원하시나요?"))
+n=int(s)
+for i in range(n):
+    t.fd(len)
+    t.lt(360/n)
+
+#3
+import random
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+for i in range(30):    
+    length=random.randint(1,100)
+    t.fd(length)
+    angle=random.randint(-180,180)
+    t.lt(angle)
+
+#3-2
+import random
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+list=[90,180,270,360]
+
+for i in range(30):    
+    length=random.randint(1,100)
+    t.fd(length)
+    angle=random.choice(list)
+    t.lt(angle)
+
+#4
+x=int(input("정수를 입력하시오: "))
+fac =1
+for i in range(x):
+    fac=fac*(i+1)
+print(x,"!은 ",fac,"이다.")
+
+#5
+x=int(input("원하는 단은: "))
+for i in range(x):
+    i=i+1
+    print(x,"*",i,"=",x*i)
+
+#6
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+for i in range(5):
+    t.fd(50)
+    t.rt(144)
+    i=i+1
+
+#7
+import turtle
+t=turtle.Turtle()
+turtle.bgcolor("black")
+colors=["red","purple","blue","green","yellow","orange"]
+t.speed(0)
+t.width(3)
+length=10
+while length <500:
+    t.fd(length)
+    t.color(colors[length%6])
+    t.rt(89)
+    length+=5
+
+#8
+total=0
+aw="yes"
+while(aw=="yes"):
+    x=int(input("숫자를 입력하시오: "))
+    total+=x
+    aw=input(("계속?(yes/no): "))
+print("합계는 :",total)
+
+#9
+import random
+x=random.randint(1,100)
+print("1부터 100 사이의 숫자를 맞추시오.")
+y=0
+total=0
+flag=0
+
+while y!=x:
+    y=int(input("숫자를 입력하시오"))
+    total+=1
+    if(x>y) :
+        print("높음")
+    elif(x<y):
+        print("낮음")
+    if(total==5):
+        flag=1
+        y=x
+if flag==0:
+    print("축하합니다. 시도횟수=",total)
+else :
+    print("실패하셨습니다. 숫자는 ",x,"입니다.")
+
+#10
+import random
+while True:
+    x=random.randint(1,100)
+    y=random.randint(1,100)
+    a=random.randrange(2)
+    if a==0:
+        print(x,"+",y,"=",end="")
+        z=int(input())
+        if z==x+y:
+            print("잘했어요")
+        else :
+            print("다음번에는 잘할 수 있죠?")
+            
+    elif a==1:
+        print(x,"-",y,"=",end="")
+        z=int(input())
+        if z==x-y:
+            print("잘했어요")
+        else :
+            print("다음번에는 잘할 수 있죠?")
+
+#11
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+t.color("red")
+t.stamp
+for i in range(12):
+    t.up()
+    t.fd(50)
+    t.down()
+    t.fd(25)
+    t.up()
+    t.fd(15)
+    t.down()
+    t.stamp()
+    t.up()
+    t.goto(0,0)
+    t.lt(30)
+    t.down()
+
+
+
+
