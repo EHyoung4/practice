@@ -1,0 +1,78 @@
+#3
+x=int(input("현재 온도를 입력하시오"))
+if x>=25:
+    print("반바지를 입으세요.")
+else:
+    print("긴바지를 입으세요.")
+
+#4
+x=int(input("성적을 입력하시오"))
+if x>=90:
+    print("A")
+elif x>=80:
+    print("B")
+elif x>=70:
+    print("C")
+elif x>=60:
+    print("D")
+else:
+    print("F")
+
+#5
+import random
+x=random.randint(1,100)
+y=random.randint(1,100)
+z=x-y
+a=int(input(str(x)+"-"+str(y)+"="))
+if z==a:
+    print("맞았습니다")
+else:
+    print("틀렸습니다.")
+
+#6
+x=int(input("정수를 입력하시오."))
+if (x%2==0 and x%3==0):
+    print("나눠집니다.")
+else:
+    print("나눠지지 않습니다.")
+
+#7
+import random
+x=int(input("복권번호를 입력하세요(0에서99사이): "))
+y = random.randint(0,99)
+print("당첨번호는 ",y,"입니다.")
+if (x//10==y//10)and (x%10==y%10):
+    print("상금은 100만원 입니다.")
+elif  (x//10==y//10) or (x%10==y%10):
+    print("상금은 50만원 입니다.")
+else :
+    print("상금은 없습니다.")
+
+#8
+x1=int(input("큰 원의 중심좌표 x1: "))
+y1=int(input("큰 원의 중심좌표 y1: "))
+r1=int(input("큰 원의 반지름 r1: "))
+x2=int(input("작은 원의 중심좌표 x2: "))
+y2=int(input("작은 원의 중심좌표 y2: "))
+r2=int(input("작은 원의 반지름 r2: "))
+
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+t.up()
+t.goto(x1,y1)
+t.down()
+t.circle(r1)
+t.up()
+t.goto(x2,y2)
+t.down()
+t.circle(r2)
+
+dis=((x1-x2)**2+(y1-y2)**2)**0.5
+dis2=r1+r2
+
+if dis<=dis2:
+    t.write("두번째 원이 첫번째 원의 내부에 있습니다.")
+else:
+    t.write("두번째 원이 첫번째 원의 내부에 있지 않습니다.")
