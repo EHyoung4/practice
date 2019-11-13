@@ -1,0 +1,106 @@
+#1
+for i in range(2, 101):
+    if i%2==0:
+        print(i,end=" ")
+
+#2
+while balance <=2000 
+
+#4 
+import random
+x=random.randrange(1,9)
+y=random.randrange(1,9)
+while True:
+    print(x,"*",y,"는 ",end="")
+    z=int(input(""))
+    if z==(x*y) :
+        print("맞았습니다")
+        break
+
+#5
+sum=0
+while True:
+    x=int(input("정수를 입력하세요: "))
+    if x==0 :
+        print("합은 ",sum,"입니다.")
+        break
+    sum+=x
+
+#7
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+for i in range(6):
+    t.lt(120)
+    t.fd(100);t.fd(-30);t.lt(60);t.fd(30);t.fd(-30);t.rt(120);t.fd(30);
+    t.up()
+    t.goto(0,0)
+    t.down()
+
+#8
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+for j in range(10):
+    for i in range(5):
+        t.fd(100)
+        t.rt(144)
+        i=i+1
+    t.lt(10)    
+
+#9
+import random
+import turtle
+
+t=turtle.Turtle()
+t.shape("turtle")
+for i in range(10):
+    x=random.randrange(1,100)
+    y=random.randrange(1,100)
+    r=random.randrange(1,100)
+
+    t.up(); t.goto(x,y); t.down()
+    t.circle(r)
+
+#10
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+for i in range(5):
+   t.fd(100)
+   t.rt(90)
+   t.fd(10)
+   t.rt(90)
+   t.fd(100)
+   t.lt(90)
+   t.fd(10)
+   t.lt(90)
+
+#11
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+t.color('red','yellow')
+t.begin_fill()
+while True:
+    t.fd(200);t.lt(170);
+    if abs(t.pos())<1:
+        break
+t.end_fill()
+
+#12
+import turtle
+import math 
+t=turtle.Turtle()
+t.shape("turtle")
+t.color('red','yellow')
+for i in range(360):
+    sinx = math.sin(math.pi * i / 180.0)
+    print(sinx)
+    t.goto(i, sinx * 100)
+
+
+
+
