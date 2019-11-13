@@ -1,0 +1,65 @@
+#1
+'나는'+'12'+'개의 사과를 먹었다.'
+#2
+applegrape appleappleapple
+#3
+x=input("문자열을 입력하시오")
+print(x[0:2]+x[-2:])
+#4
+x=input("문자열을 입력하시오")
+print(x+"하는중")
+#5
+x=input("기호를 입력하시오: ")
+y=input("중간에 삽입할 문자열을 입력하시오:")
+print(x[0]+y+x[-1])
+
+#7
+x=input("색상 #1을 입력하시오:")
+y=input("색상 #2을 입력하시오:")
+z=input("색상 #3을 입력하시오:")
+color=[x,y,z]
+
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+t.fillcolor(color[0])
+t.begin_fill()
+t.circle(50)
+t.end_fill()
+
+t.up()
+t.goto(100,0)
+t.down()
+t.fillcolor(color[1])
+t.begin_fill()
+t.circle(50)
+t.end_fill()
+
+t.up()
+t.goto(200,0)
+t.down()
+t.fillcolor(color[2])
+t.begin_fill()
+t.circle(50)
+t.end_fill()
+
+#8
+x=[]
+y=[]
+x.append(int(input("x1: ")))
+y.append(int(input("y1: ")))
+x.append(int(input("x2: ")))
+y.append(int(input("y2: ")))
+x.append(int(input("x3: ")))
+y.append(int(input("y3: ")))
+
+import turtle
+t=turtle.Turtle()
+t.shape("turtle")
+
+t.up()
+t.goto(x[0],y[0])
+t.down()
+t.goto(x[1],y[1])
+t.goto(x[2],y[2])
