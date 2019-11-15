@@ -1,0 +1,96 @@
+#1 
+list=[]
+sum=0
+for i in range(5):
+    x=int(input("정수를 입력하시오"))
+    list.append(x)
+    sum+=x
+print("평균 = ",sum/len(list))
+
+#2
+import random
+counters=[0,0,0,0,0,0]
+for i in range(100):
+     x=random.randint(0,5)
+     counters[x]=counters[x]+1
+for i in range(6):
+    print("주사위가 ",i+1,"인 경우는 ",counters[i])
+
+#3
+phone={}
+while True:
+    x=input("(입력모드)이름을 입력하시오: ")
+    if not x:
+        z=input("(검색모드)이름을 입력하시오: ")
+        print(phone[z])
+        break;
+    y=input("전화번호를 입력하시오: ")
+    phone[x]=y
+
+#4
+import turtle as t
+import random
+#color=["blue","red","purple","yellow"]
+def square(x,y,c):
+    t.up();t.goto(x,y);t.down();t.speed(0);
+    t.begin_fill()
+    for i in range(4):
+        t.fd(50);t.lt(90);
+    t.color("black", c);t.end_fill()
+
+for c in ["blue","red","purple","yellow"]:
+    x=random.randrange(-100,100)
+    y=random.randrange(-100,100)
+    square(x,y,c)
+
+#5
+import turtle as t
+import random
+color=["blue","red","purple","yellow","orange","pink"]
+
+def draw(x,y,c,n):
+    t.up();t.goto(x,y);t.down();t.speed(0);
+    t.begin_fill()
+    for i in range(n):
+        t.fd(50);t.lt(360/n);
+    t.color("black", c);t.end_fill()
+
+for i in range(10):
+    x=random.randrange(-200,200)
+    y=random.randrange(-200,200)
+    c=random.choice(color)
+    n=random.randrange(3,8)
+    draw(x,y,c,n)
+    
+#6
+import turtle as t
+import random
+color=["blue","red","purple","yellow","orange","pink"]
+
+def draw_star(c,length,x,y):
+    t.up();t.goto(x,y);t.down();t.speed(0);
+    t.begin_fill()
+    i=0
+    while i<5:
+        t.fd(length);t.rt(144);i+=1
+    t.color(c,c);t.end_fill()
+    
+s=t.Screen();s.bgcolor("black")
+for i in range(10):
+    x=random.randrange(-200,200)
+    y=random.randrange(-200,200)
+    c=random.choice(color)
+    length=random.randrange(0,100)
+    draw_star(c,length,x,y)
+
+#7
+problems={'파이썬':'python','변수':'메모리공간','함수':'작업수행문장','리스트':'list'}
+for word in problems.keys():
+    print(word)
+    print("다음은 어떤 단어에 대한 설명일까요?")
+    print(problems[word])
+    aw=input("1.파이썬 2.변수 3.함수 4.리스트")
+    if aw==word:
+        print("정답입니다.")
+    else:
+        print("정답이 아닙니다.")
