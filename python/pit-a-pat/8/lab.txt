@@ -1,0 +1,105 @@
+#1 
+import random
+quotes=[]
+quotes.append("꿈을 지녀라. 그러면 어려운 현실을 이길 수 있다.")
+quotes.append("사람은 사랑할 때 누구나 시인이 된다.")
+quotes.append("고생 없이 얻을 수 있는 진실로 귀중한 것은 하나도 없다.")
+quotes.append("시작이 반이다.")
+print("오늘의 속담")
+print(random.choice(quotes))
+
+#2
+import turtle as t
+color=["green","purple","yellow","blue","red"]
+x=[0,30,60,90,120]
+y=[50,0,50,0,50]
+
+for i in range (5):
+    t.up();t.goto(x[i],y[i]);t.down()
+    t.speed(0);t.begin_fill();t.color(color[i]);t.circle(30);t.end_fill()
+#2-1
+import turtle as t
+p=[[0,50,"green"],[30,0,"purple"],[60,50,"yellow"],[90,0,"blue"],[120,50,"red"]]
+
+for x,y,z in p:
+    t.up();t.goto(x,y);t.down()
+    t.speed(0);t.begin_fill();t.color(z);t.circle(30);t.end_fill()
+
+#3
+import turtle as t
+import random
+import math
+
+p=t.Turtle();p.shape("turtle");p.color("blue");p.up();p.speed(0)
+s=p.getscreen()
+
+asteroids=[]
+for i in range(10):
+    a1=t.Turtle();a1.color("red");a1.shape("circle")
+    a1.up();a1.speed(0);a1.goto(random.randint(-100,100),random.randint(-100,100));a1.down()
+    asteroids.append(a1)
+
+def lt():
+    p.lt(30)
+def rt():
+    p.rt(30)
+
+s.onkeypress(lt,"Left")
+s.onkeypress(rt,"Right")
+s.listen()
+
+def play():
+    p.fd(2)
+    for a in asteroids:
+        a.rt(random.randint(-180,180))
+        a.up();a.fd(2);a.down();
+    s.ontimer(play,10)
+    
+s.ontimer(play, 10)
+
+#4
+items={'커피음료':7,'펜':3,'종이컵':2,'우유':1,'콜라':4,"책":5}
+x=input("물건의 이름을 입력하시오:")
+print(items[x])
+
+#5
+dict={}
+dict['one']='하나'
+dict['two']='둘'
+x=input("단어를 입력하시오")
+print(dict[x])
+
+#6
+import smtplib
+
+TO='email'
+SUBJECT = 'HI!'
+TEXT = 'Im IML!'
+
+gmail_sender = 'email'
+gmail_passwd = 'pw'
+
+server=smtplib.SMTP('smtp.gmail.com',587)
+#AMTP() 해당 smtp 서버의 도메인 및 포트를 인자로 접속한 수 객체 생성
+server.ehlo()
+#ehlo() 접속후 해당 서버에 hello 메세지 전달
+server.starttls()
+#starttls() 해당 서버의 암호화 방식을 정함 -TLS방식 
+server.login(gmail_sender,gmail_passwd)
+#login() 로그인
+
+BODY = '\r\n'.join(['To: %s' %TO,
+                    'From: %s' %gmail_sender,
+                    'Subject: %s' %SUBJECT,
+                    '', TEXT])
+try:
+    server.sendmail(gmail_sender, [TO], BODY)
+     #sendmail(송신자, 수신자[복수],)
+    print("sent")
+except:
+    print("error")
+server.quit()
+#quit() SMTP와 연결중
+
+
+
