@@ -1,0 +1,175 @@
+#1
+from tkinter import *
+
+window=Tk();
+
+t1=Label(window,text="간단한 GUI 프로그램!");t1.pack()
+b1=Button(window,text="환영합니다.");b1.pack()
+b2=Button(window,text="종료");b2.pack()
+
+window.mainloop()
+
+#2
+from tkinter import *
+window=Tk();
+
+n=100
+def p():
+    global n
+    n=n+int(e.get())
+    t=Label(window,text="현재 합계:  "+str(n));t.grid(row=0,column=1)
+def m():
+    global n
+    n=n-int(e.get())
+    t=Label(window,text="현재 합계:  "+str(n));t.grid(row=0,column=1)
+def r():
+    global n
+    n=100
+    t=Label(window,text="현재 합계:  "+str(n));t.grid(row=0,column=1)
+    
+t=Label(window,text="현재 합계:  "+str(n));t.grid(row=0,column=1)
+e=Entry(window,bg="yellow");e.grid(row=1,column=1)
+b1=Button(window,text="더하기(+)",command=p);b1.grid(row=2,column=0)
+b2=Button(window,text="빼기(-)",command=m);b2.grid(row=2,column=1)
+b3=Button(window,text="초기화",command=r);b3.grid(row=2,column=2)
+
+window.mainloop()
+
+#3
+from tkinter import *
+import random
+window=Tk();
+
+def i():
+    global msg
+    if x>int(e.get()):
+        msg='너무 낮아요!'
+    elif x<int(e.get()):
+        msg='너무 높아요!'
+    else :
+        msg='정답입니다!'
+    t=Label(window,text=msg);t.grid(row=0,column=0)
+def r():
+    global x
+    x=random.randrange(1,100)
+    #print(x)
+    
+x=random.randrange(1,100)
+#print(x)
+t=Label(window);t.grid(row=0,column=0)
+e=Entry(window);e.grid(row=1,column=0)
+b1=Button(window,text="숫자를 입력",command=i);b1.grid(row=2,column=0)
+b2=Button(window,text="게임을 다시 실행",command=r);b2.grid(row=2,column=1)
+
+window.mainloop()
+
+#4
+from tkinter import *
+window=Tk();
+msg=""
+def i():
+    global msg
+    msg=str(float(e.get())*2.54)
+    t4=Label(window,text=msg+"센티미터");t4.grid(row=2,column=1)
+
+t1=Label(window,text="인치를 센티미디로 변환하는 프로그램: ");t1.grid(row=0,column=0,columnspan=2)
+t2=Label(window,text="인치를 입력하시오:");t2.grid(row=1,column=0)
+e=Entry(window);e.grid(row=1,column=1)
+t3=Label(window,text="변환결과: ");t3.grid(row=2,column=0)
+
+b1=Button(window,text="변환",command=i);b1.grid(row=3,column=1)
+
+window.mainloop()
+
+#5
+from tkinter import *
+window=Tk();
+
+def show():
+    print("이름 :"+e1.get())
+    print("직업 :"+e2.get())
+    print("국가 :"+e3.get())
+def quit():
+    exit()
+    
+t1=Label(window,text="이름");t1.grid(row=0,column=0)
+e1=Entry(window);e1.grid(row=0,column=1)
+t2=Label(window,text="직업");t2.grid(row=1,column=0)
+e2=Entry(window);e2.grid(row=1,column=1)
+t3=Label(window,text="국적");t3.grid(row=2,column=0)
+e3=Entry(window);e3.grid(row=2,column=1)
+
+f1=Frame()
+b1=Button(f1,text="Show",command=show).pack(side="left")
+b2=Button(f1,text='Quit',command=quit).pack(side="left")
+f1.grid(row=3,column=0)
+
+window.mainloop()
+
+#6
+from tkinter import *
+import random
+window=Tk();
+c=["바위","가위","보"]
+
+def r(): #바위를 선택
+    x=random.choice(c)
+    print(x)
+    global i
+    if x=='바위':
+        i=0
+    elif x=='가위':
+        i=1
+    else :
+        i=-1
+
+
+   # t1['text']="바위"
+    t1.text='바위'
+   # t3['text']=x
+    play(i)
+    
+def s(): #가위를 선택
+    x=random.choice(c)
+    global i
+    if x=='가위':
+        i=0
+    elif x=='보':
+        i=1
+    else :
+        i=-1
+    t1['text']="가위";t3['text']=x;play(i)
+    
+def p(): #보를 선택
+    x=random.choice(c)
+    global i
+    if x=='보':
+        i=0
+    elif x=='바위':
+        i=1
+    else :
+        i=-1
+    t1['text']='보';t3['text']=x;play(i)
+    
+def play(i):
+    if i==0:
+        win="====="
+        result="비김"
+    elif i==1:
+        win=">>>>>"
+        result="사용자 승"
+    else :
+        win="<<<<<"
+        result="컴퓨터 승"
+    t2['text']=win;t4['text']=result
+
+t1=Label(window,text="플레이어");t1.grid(row=0,column=0)#플레이어
+t3=Label(window,text="컴퓨터");t3.grid(row=0,column=2)#컴퓨터
+t2=Label(window,text="결과");t2.grid(row=0,column=1)#결과
+t4=Label(window,text="승패");t4.grid(row=1,column=1)#승패  
+b1=Button(window,text="바위",command=r).grid(row=2,column=0)
+b2=Button(window,text="가위",command=s).grid(row=2,column=1)
+b3=Button(window,text="보",command=p).grid(row=2,column=2)
+
+window.mainloop()
+#label은 생성과 선언을 같이할 수 없지만 버튼은 가능
