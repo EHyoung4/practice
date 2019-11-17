@@ -1,0 +1,157 @@
+#5
+from tkinter import *
+
+window=Tk()
+button=Button(window,text="클릭하세요")
+button.pack()
+
+window.mainloop()
+
+#6
+from tkinter import *
+window=Tk()
+
+l1=Label(window, text="화씨")
+l2=Label(window, text="섭씨")
+l1.pack();l2.pack()
+
+e1=Entry(window)
+e2=Entry(window)
+e1.pack();e2.pack()
+
+b1=Button(window,text="화씨->섭씨")
+b2=Button(window,text='섭씨->화씨')
+b1.pack();b2.pack()
+
+window.mainloop()
+
+#8
+from tkinter import *
+window=Tk()
+
+l1=Label(window, text="화씨")
+l2=Label(window, text="섭씨")
+l1.grid(row=0,column=0);l2.grid(row=1,column=0)
+
+e1=Entry(window)
+e2=Entry(window)
+e1.grid(row=0,column=1);e2.grid(row=1,column=1)
+
+b1=Button(window,text="화씨->섭씨")
+b2=Button(window,text='섭씨->화씨')
+b1.grid(row=2,column=0);b2.grid(row=2,column=1)
+
+window.mainloop()
+
+#11
+from tkinter import *
+window=Tk()
+
+def p1():
+    x=(float(e1.get())-32)*5/9
+    e2.delete(0,END)
+    e2.insert(0,x)
+def p2():
+    x=(float(e2.get())*9/5)+32
+    e1.delete(0,END)
+    e1.insert(0,x)
+
+l1=Label(window, text="화씨")
+l2=Label(window, text="섭씨")
+l1.grid(row=0,column=0);l2.grid(row=1,column=0)
+
+e1=Entry(window)
+e2=Entry(window)
+e1.grid(row=0,column=1);e2.grid(row=1,column=1)
+
+b1=Button(window,text="화씨->섭씨",command=p1)
+b2=Button(window,text='섭씨->화씨',command=p2)
+b1.grid(row=2,column=0);b2.grid(row=2,column=1)
+
+window.mainloop()
+
+#16
+from tkinter import *
+
+def paint(event):
+    x1,y1=(event.x-1),(event.y+1)
+    x2,y2=(event.x-1),(event.y+1)
+    canvas.create_oval(x1,y1,x2,y2,fill="black")
+
+window=Tk();canvas=Canvas(window)
+canvas.pack()
+canvas.bind("<B1-Motion>",paint)
+window.mainloop()
+
+#17
+from tkinter import *
+
+def paint(event):
+    x1,y1=(event.x-1),(event.y+1)
+    x2,y2=(event.x-1),(event.y+1)
+    canvas.create_oval(x1,y1,x2,y2,fill=mycolor)
+def p1():
+    global mycolor
+    mycolor="red"
+
+window=Tk();canvas=Canvas(window)
+mycolor="black"
+canvas.pack()
+canvas.bind("<B1-Motion>",paint)
+b1=Button(window,text="빨간색",command=p1);b1.pack()
+
+window.mainloop()
+#17-1
+from tkinter import *
+
+def paint(event):
+    x1,y1=(event.x-1),(event.y+1)
+    x2,y2=(event.x-1),(event.y+1)
+    canvas.create_oval(x1,y1,x2,y2,fill=mycolor)
+def p1():
+    global mycolor
+    mycolor="red"
+def p2():
+    global mycolor
+    mycolor="green"
+def p3():
+    global mycolor
+    mycolor="yellow"
+
+window=Tk();canvas=Canvas(window)
+mycolor="black"
+canvas.pack()
+canvas.bind("<B1-Motion>",paint)
+b1=Button(window,text="빨간색",command=p1);b1.pack()
+b2=Button(window,text="녹색",command=p2);b2.pack()
+b3=Button(window,text="노란색",command=p3);b3.pack()
+window.mainloop()
+
+#18.27
+from tkinter import *
+
+window=Tk();window.title("My Calculator")
+
+e1=Entry(window,width=33,bg="yellow")
+e1.grid(row=0,column=0,columnspan=5);
+button=['7','8','9','/','C','4','5','6','*',' ','1','2','3','-',' ','0',
+        '.','=','+',' ']
+def click(key):
+    if key=='=':
+        x=str(eval(e1.get()))
+        e1.delete(0,END)
+        e1.insert(END,"="+x)
+    else:        
+        e1.insert(END,key) #key가 클릭되면 엔트리에 key값을 넣어줌
+
+r=1;c=0
+for i in button:
+    def process(t=i):
+        click(t)
+    Button(window,text=i,command=process,width=5).grid(row=r,column=c)
+    c+=1
+    if c>4:
+        r+=1;c=0
+        
+window.mainloop()
+
